@@ -75,12 +75,9 @@ export function ClientProvider({ children }) {
 
       setClients(newClient); // Actualiza el estado con el nuevo cliente
     } else {
-      // Si ya existe muestro un log (CREAR ALERTA VISUAL MAS ADELANTE)
-      if (idExist) {
-        console.log("Id utilizado");
-      } else {
-        console.log("Completa todos los campos");
-      }
+      // Si algun campo esta muestro un log (CREAR ALERTA VISUAL MAS ADELANTE)
+
+      console.log("Completa todos los campos");
     }
   };
 
