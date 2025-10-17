@@ -16,7 +16,7 @@ export function ProductsProvider({ children }) {
       code: 1,
       name: "Hola",
       color: "099592441",
-      categoria: "Perfume",
+      category: "Perfume",
       price: 100,
       ganance: 25,
     },
@@ -25,7 +25,7 @@ export function ProductsProvider({ children }) {
       code: 3,
       name: "Perfume",
       color: "tt",
-      categoria: "Perfume",
+      category: "Perfume",
       price: 100,
       ganance: 25,
     },
@@ -117,6 +117,19 @@ export function ProductsProvider({ children }) {
     }
   };
 
+  // Filtrado por categoria
+  const filterProducts = (categoryQuery) => {
+    // Filtro los porductos segun su categoria
+
+    const filtered = products.filter(
+      (product) => product.category === categoryQuery
+    );
+
+    console.log(filtered);
+    // Retorno solo los productos de esa categoria
+    return filtered;
+  };
+
   // -------------------------
   // Retorno del Provider con estado y funciones
   // -------------------------
@@ -131,6 +144,7 @@ export function ProductsProvider({ children }) {
         editProduct,
         getProduct,
         searchProducts,
+        filterProducts,
       }}
     >
       {children}

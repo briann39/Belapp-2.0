@@ -2,8 +2,18 @@ import React, { useContext, useState } from "react";
 import { ProductsContext } from "../contexts/ProductsContext";
 
 export const ProductsList = () => {
-  const { products, setProducts } = useContext(ProductsContext);
+  const {
+    products,
+    setProducts,
+    addProduct,
+    removeProduct,
+    editProduct,
+    getProduct,
+    searchProducts,
+    filterProducts,
+  } = useContext(ProductsContext);
 
+  console.log(filterProducts("Perfume"));
   /* Lista de Productos  */
   return (
     <ul className="box-border flex flex-col w-full h-full gap-2">

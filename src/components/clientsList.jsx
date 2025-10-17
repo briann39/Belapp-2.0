@@ -13,7 +13,6 @@ export const ClientsList = () => {
     searchClients,
   } = useContext(ClientsContext);
 
-  getClient(1);
   /* Lista de Clientes  */
   return (
     <ul className="box-border flex flex-col w-full h-full gap-2">
@@ -43,8 +42,8 @@ export const ClientsList = () => {
         return (
           <li
             key={client.id}
-            className={`box-border flex justify-around w-full p-5 align-middle border border-gray-300 rounded-lg ${
-              client.id % 2 !== 0 ? "bg-blue-100" : "bg-transparent"
+            className={`box-border flex justify-around w-full p-2.5 align-middle border border-gray-300 rounded-lg ${
+              client.id % 2 !== 0 ? "bg-gray-200" : "bg-white"
             } `}
           >
             <span className="w-20 font-sans text-gray-800 truncate md:w-20">
