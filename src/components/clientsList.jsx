@@ -11,6 +11,8 @@ export const ClientsList = () => {
     editClient,
     getClient,
     searchClients,
+    setClientSelected,
+    clientSelected,
   } = useContext(ClientsContext);
 
   /* Lista de Clientes  */
@@ -42,9 +44,13 @@ export const ClientsList = () => {
         return (
           <li
             key={client.id}
-            className={`box-border flex justify-around w-full p-2.5 align-middle border border-gray-300 rounded-lg ${
+            className={`box-border flex justify-around w-full p-2.5 align-middle border border-gray-300 rounded-lg transition duration-300 cursor-pointer ${
               client.id % 2 !== 0 ? "bg-gray-200" : "bg-white"
             } `}
+            style={{
+              backgroundColor: client.id === clientSelected ? "#DBEAFE" : "",
+            }}
+            onClick={() => setClientSelected(client.id)}
           >
             <span className="w-20 font-sans text-gray-800 truncate md:w-20">
               {client.id}

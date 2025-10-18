@@ -2,26 +2,47 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 // Boton Cuadrado (Notificaciones, volver atras, etc)
-export const ButtonSquared = ({ content }) => {
+export const ButtonSquared = ({ content, action }) => {
   return (
-    <button className="w-12 h-12 p-2 text-xl text-gray-700 transition duration-300 bg-gray-200 border-2 border-gray-400 rounded-lg active:scale-95 hover:bg-blue-300">
+    <button
+      className="w-12 h-12 p-2 text-xl text-gray-700 transition duration-300 bg-gray-200 border-2 border-gray-400 rounded-lg active:scale-95 hover:bg-blue-300"
+      onClick={action}
+    >
       {content}
     </button>
   );
 };
 
-export const ButtonSquaredBigPrimary = ({ content, icono }) => {
+export const ButtonSquaredBigPrimary = ({
+  content,
+  typeButton,
+  icono,
+  action,
+}) => {
   return (
-    <button className="w-1/3 p-5 text-2xl text-white bg-black rounded-lg">
+    <button
+      className="w-1/3 p-5 text-2xl text-white transition duration-100 bg-black rounded-lg active:scale-95 hover:bg-gray-900"
+      onClick={action}
+      type={typeButton}
+    >
       {icono}
       <p className="text-sm font-bold">{content}</p>
     </button>
   );
 };
 
-export const ButtonSquaredBigSecondary = ({ content, icono }) => {
+export const ButtonSquaredBigSecondary = ({
+  content,
+  typeButton,
+  icono,
+  action,
+}) => {
   return (
-    <button className="w-1/3 p-5 text-2xl text-black bg-white border-2 border-gray-400 rounded-lg">
+    <button
+      type={typeButton}
+      className="w-1/3 p-5 text-2xl text-black bg-white border-2 border-gray-400 rounded-lg"
+      onClick={action}
+    >
       {icono}
       <p className="text-sm font-bold">{content}</p>
     </button>

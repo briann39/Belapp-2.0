@@ -45,6 +45,9 @@ export function ClientProvider({ children }) {
     },
   ]);
 
+  // Estado de cliente seleccionado
+  const [clientSelected, setClientSelected] = useState(null);
+
   // -------------------------
   // Funciones para manipular clientes
   // -------------------------
@@ -75,7 +78,7 @@ export function ClientProvider({ children }) {
 
       setClients(newClient); // Actualiza el estado con el nuevo cliente
     } else {
-      // Si algun campo esta muestro un log (CREAR ALERTA VISUAL MAS ADELANTE)
+      // Si algun campo esta vacio muestro un log (CREAR ALERTA VISUAL MAS ADELANTE)
 
       console.log("Completa todos los campos");
     }
@@ -85,7 +88,10 @@ export function ClientProvider({ children }) {
   const removeClient = (id) => {
     const newClient = clients.filter((client) => client.id !== id); // filtro los clientes que NO coinciden con el id
 
-    setClients(newClient); // Acutalizo el estado
+    const newClients = newClient.map(
+      (client) => (client.id > id ? { ...client, id: client.id - 1 } : client) // le resto un al id de los clientes mayores al id seleccionado
+    );
+    setClients(newClients); // Acutalizo el estado
   };
 
   // Edita los datos de un cliente existente por su id
@@ -137,6 +143,8 @@ export function ClientProvider({ children }) {
         editClient,
         getClient,
         searchClients,
+        setClientSelected,
+        clientSelected,
       }}
     >
       {children}
