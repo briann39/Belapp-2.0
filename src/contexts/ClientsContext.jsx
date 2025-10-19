@@ -18,6 +18,7 @@ export function ClientProvider({ children }) {
       direction: "Pilarica 334, (carlos gardel y pilar cabrera)",
       productsIds: [1, 2, 3],
       amount: 100,
+      status: "pendient",
     },
     {
       id: 2,
@@ -26,6 +27,7 @@ export function ClientProvider({ children }) {
       direction: "Pilarica 334, (carlos gardel y pilar cabrera)",
       productsIds: [1, 2, 3],
       amount: 100,
+      status: "pendient",
     },
     {
       id: 3,
@@ -34,6 +36,7 @@ export function ClientProvider({ children }) {
       direction: "Pilarica 334, (carlos gardel y pilar cabrera)",
       productsIds: [1, 2, 3],
       amount: 100,
+      status: "send",
     },
     {
       id: 4,
@@ -42,6 +45,7 @@ export function ClientProvider({ children }) {
       direction: "Pilarica 334, (carlos gardel y pilar cabrera)",
       productsIds: [1, 2, 3],
       amount: 100,
+      status: "send",
     },
   ]);
 
@@ -73,6 +77,7 @@ export function ClientProvider({ children }) {
           direction: newDirection,
           productsIds: [], // nuevo cliente inicia sin productos
           amount: 0, // monto inicial en 0
+          status: "pendient",
         },
       ];
 

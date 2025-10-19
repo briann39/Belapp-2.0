@@ -17,10 +17,10 @@ export const ClientsList = () => {
 
   /* Lista de Clientes  */
   return (
-    <ul className="box-border flex flex-col w-full h-full gap-2">
+    <ul className="box-border relative flex flex-col flex-1 w-full h-full gap-2 overflow-auto">
       {/* Labels de datos */}
 
-      <li className="box-border flex justify-around w-full p-5 font-bold align-middle bg-white border border-gray-300 rounded-lg">
+      <li className="box-border sticky top-0 flex justify-around w-full p-5 font-bold align-middle bg-white border border-gray-300 rounded-lg">
         <span className="w-20 font-sans text-gray-800 truncate md:w-20">
           Id
         </span>

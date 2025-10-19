@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   ButtonPrimary,
   ButtonSquared,
@@ -16,9 +16,12 @@ import {
   faShoppingBag,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { ClientsContext } from "../contexts/ClientsContext";
 
 // Pagina de inicio
 export const Home = () => {
+  const { clients } = useContext(ClientsContext);
+
   return (
     <div className="flex flex-col gap-5">
       {/* Encabezado */}
@@ -34,7 +37,9 @@ export const Home = () => {
       {/*Contenedor para ver le monto total de ventas */}
       <div className="flex flex-col w-full gap-2.5 p-5 bg-white border-2 rounded-2xl">
         <span className="font-bold text-gray-600">Total:</span>
-        <h3 className="text-6xl font-bold text-black">$ 5,000</h3>
+        <h3 className="text-6xl font-bold text-black">
+          $ {clients.reduce((acc, client) => acc + client.amount, 0)}
+        </h3>
         <ButtonPrimary content="Agregar Cliente" />
       </div>
       <div className="flex w-full gap-5">
@@ -49,7 +54,12 @@ export const Home = () => {
           <span className="text-xs font-bold text-gray-600">
             Clientes restantes:
           </span>
-          <h3 className="text-xl font-bold text-black">20</h3>
+          <h3 className="text-xl font-bold text-black">
+            {clients.reduce(
+              (acc, client) => acc + (client.status === "pendient" ? 1 : 0),
+              0
+            )}
+          </h3>
         </div>
       </div>
       {/* Botones de acciones */}
