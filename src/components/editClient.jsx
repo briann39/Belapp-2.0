@@ -49,7 +49,7 @@ export const EditClient = ({ clientId, closeMenu, menu }) => {
       {/* Menu de informacion del cliente */}
 
       <div
-        className="p-2.5 absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 flex flex-col gap-2.5 rounded-xl "
+        className="p-2.5 absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 flex flex-col gap-2.5 rounded-xl max-w-96 "
         style={{ display: menu ? "flex" : "none" }}
       >
         {/* Encabezado del menu */}
@@ -59,7 +59,7 @@ export const EditClient = ({ clientId, closeMenu, menu }) => {
 
         {/* informacion del cliente */}
         <form
-          className="flex flex-col gap-5"
+          className="flex flex-col gap-2.5"
           onSubmit={(e) => {
             e.preventDefault();
             newClient();
@@ -71,41 +71,50 @@ export const EditClient = ({ clientId, closeMenu, menu }) => {
             <div className="flex items-center justify-center w-10 h-10 bg-white border-2 rounded-lg">
               <FontAwesomeIcon icon={faUser} />
             </div>
-            <input
-              type="text"
-              value={newName}
-              onChange={(e) => setNewName(e.target.value)}
-              className="bg-transparent px-2.5 py-1 rounded-lg border-2 border-black flex-1"
-            />
+            <div className="flex flex-col flex-1">
+              <p className="text-xs font-normal text-gray-500">Nombre:</p>
+              <input
+                type="text"
+                value={newName}
+                onChange={(e) => setNewName(e.target.value)}
+                className="bg-transparent px-2.5 py-1 rounded-lg border-2 border-black flex-1"
+              />
+            </div>
           </div>
           {/* Numero de telefono */}
           <div className="flex items-center justify-left font-bold bg-gray-100 gap-2.5 w-full border p-1.5 rounded-lg ">
             <div className="flex items-center justify-center w-10 h-10 bg-white border-2 rounded-lg">
               <FontAwesomeIcon icon={faPhone} />
             </div>
-            <input
-              type="text"
-              value={newPhone}
-              onChange={(e) => setNewPhone(e.target.value)}
-              className="bg-transparent px-2.5 py-1 rounded-lg border-2 border-black flex-1"
-            />
+            <div className="flex flex-col flex-1">
+              <p className="text-xs font-normal text-gray-500">Número:</p>
+              <input
+                type="text"
+                value={newPhone}
+                onChange={(e) => setNewPhone(e.target.value)}
+                className="bg-transparent px-2.5 py-1 rounded-lg border-2 border-black flex-1"
+              />
+            </div>
           </div>
           {/* Direccion */}
           <div className="flex items-center justify-left font-bold bg-gray-100 gap-2.5 w-full border p-1.5 rounded-lg ">
             <div className="flex items-center justify-center w-10 h-10 bg-white border-2 rounded-lg">
               <FontAwesomeIcon icon={faMapPin} />
             </div>
-            <input
-              type="text"
-              value={newDirection}
-              onChange={(e) => setNewDirection(e.target.value)}
-              className="bg-transparent px-2.5 py-1 rounded-lg border-2 border-black flex-1"
-            />
+            <div className="flex flex-col flex-1">
+              <p className="text-xs font-normal text-gray-500">Dirección:</p>
+              <input
+                type="text"
+                value={newDirection}
+                onChange={(e) => setNewDirection(e.target.value)}
+                className="bg-transparent px-2.5 py-1 rounded-lg border-2 border-black flex-1"
+              />
+            </div>
           </div>
 
           {/* Contenedor de botones */}
 
-          <div className="flex items-center w-full justify-left ">
+          <div className="flex items-center justify-end w-full ">
             {/* Boton Principal, ver Productos */}
             <div className="w-1/2">
               <ButtonPrimary

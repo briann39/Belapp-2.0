@@ -40,7 +40,7 @@ export const ButtonSquaredBigSecondary = ({
   return (
     <button
       type={typeButton}
-      className="w-1/3 p-5 text-2xl text-black bg-white border-2 border-gray-400 rounded-lg"
+      className="w-1/3 p-5 text-2xl text-black transition duration-300 bg-white border-2 border-gray-200 rounded-lg hover:border-black hover:text-black hover:bg-gray-200"
       onClick={action}
     >
       {icono}

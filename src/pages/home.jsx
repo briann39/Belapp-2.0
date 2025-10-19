@@ -28,8 +28,8 @@ export const Home = () => {
       <div className="flex justify-between align">
         {/* Bienvenida a la aplicacion, con nombre */}
         <div>
-          <h2 className="font-sans font-bold text-black">Hola, Belen</h2>
-          <p className="text-gray-600">Bienvenida a BelApp</p>
+          <h2 className="font-sans font-bold text-black">Hola, Brian</h2>
+          <p className="text-gray-600">Bienvenida a BeApp</p>
         </div>
         {/* boton para ver notificaciones*/}
         <ButtonSquared content={<FontAwesomeIcon icon={faBell} />} />
@@ -92,7 +92,7 @@ export const Home = () => {
             </div>
             <div>
               <h4 className="text-sm font-bold">
-                Pago de nataly recibido de $900
+                Pago de Brian recibido de $900
               </h4>
               <p className="text-xs text-gray-400">dom 15 de Octubre</p>
             </div>

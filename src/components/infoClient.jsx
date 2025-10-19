@@ -37,7 +37,7 @@ export const InfoClient = ({
       {/* Menu de informacion del cliente */}
 
       <div
-        className="p-2.5 absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 flex flex-col gap-2.5 rounded-xl "
+        className="p-2.5 absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 flex flex-col max-w-96 gap-2.5 rounded-xl "
         style={{ display: menu ? "flex" : "none" }}
       >
         {/* Encabezado del menu */}
@@ -52,34 +52,51 @@ export const InfoClient = ({
             <div className="flex items-center justify-center w-10 h-10 bg-white border-2 rounded-lg">
               <FontAwesomeIcon icon={faUser} />
             </div>
-            <h4>{client.name}</h4>
+            <div className="flex flex-col">
+              <p className="text-xs font-normal text-gray-500">Nombre:</p>
+              <h4>{client.name}</h4>
+            </div>
           </div>
           {/* Numero de telefono */}
           <div className="flex items-center justify-left font-bold bg-gray-100 gap-2.5 w-full border p-1.5 rounded-lg ">
             <div className="flex items-center justify-center w-10 h-10 bg-white border-2 rounded-lg">
               <FontAwesomeIcon icon={faPhone} />
             </div>
-            <h4>{client.phone}</h4>
+            <div className="flex flex-col">
+              <p className="text-xs font-normal text-gray-500">
+                Número de telefono:
+              </p>
+              <h4>{client.phone}</h4>
+            </div>
           </div>
           {/* Direccion */}
           <div className="flex items-center justify-left font-bold bg-gray-100 gap-2.5 w-full border p-1.5 rounded-lg ">
             <div className="flex items-center justify-center w-10 h-10 bg-white border-2 rounded-lg">
               <FontAwesomeIcon icon={faMapPin} />
             </div>
-            <h4 className="flex-1">{client.direction}</h4>
+            <div className="flex flex-col">
+              <p className="text-xs font-normal text-gray-500">Dirección:</p>
+              <h4 className="flex-1">{client.direction}</h4>
+            </div>
           </div>
           <div className="flex items-center justify-left gap-2.5">
             <div className="flex gap-2.5 items-center w-1/2 justify-left font-bold bg-gray-100 border p-1.5 rounded-lg ">
               <div className="flex items-center justify-center w-10 h-10 bg-white border-2 rounded-lg">
                 <FontAwesomeIcon icon={faDollarSign} />
               </div>
-              <h4 className="flex-1">{client.amount}</h4>
+              <div className="flex flex-col">
+                <p className="text-xs font-normal text-gray-500">Monto:</p>
+                <h4 className="flex-1">{client.amount}</h4>
+              </div>
             </div>
             <div className="flex gap-2.5 items-center w-1/2 justify-left font-bold bg-gray-100 border p-1.5 rounded-lg ">
               <div className="flex items-center justify-center w-10 h-10 bg-white border-2 rounded-lg">
                 <FontAwesomeIcon icon={faCartShopping} />
               </div>
-              <h4 className="flex-1">{client.productsIds.length}</h4>
+              <div className="flex flex-col">
+                <p className="text-xs font-normal text-gray-500">Productos:</p>
+                <h4 className="flex-1">{client.productsIds.length}</h4>
+              </div>
             </div>
           </div>
         </div>

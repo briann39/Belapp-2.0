@@ -9,9 +9,12 @@ import { NavigateBar } from "./components/navigateBar.jsx";
 import { PageContext } from "./contexts/pageContext.jsx";
 import { ClientsList } from "./components/clientsList.jsx";
 import { ClientsPage } from "./pages/clientsPage.jsx";
+import { ProductsPage } from "./pages/productsPage.jsx";
 
 function App() {
   const { actuallyPage, setActuallyPage } = useContext(PageContext);
+
+  const buttonAddClient = () => {};
 
   return (
     <ClientProvider>
@@ -33,7 +36,7 @@ function App() {
           className="w-screen h-screen p-5 bg-gray-100"
           style={{ display: `${!(actuallyPage === "Products") ? "none" : ""}` }}
         >
-          <ProductsList />
+          <ProductsPage />
         </div>
         {/* Barra de navegacion para android */}
         <NavigateBar />

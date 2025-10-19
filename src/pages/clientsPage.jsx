@@ -13,13 +13,16 @@ import { NewClientForm } from "../components/newClientForm";
 import { EditClient } from "../components/editClient";
 
 export const ClientsPage = () => {
+  // Funciones del contexto de clientes
   const { addClient, clientSelected, getClient, removeClient } =
     useContext(ClientsContext);
 
+  // Estados de los menus
   const [showAddClient, setShowAddClient] = useState(false);
   const [showInfoClient, setShowInfoClient] = useState(false);
   const [showEditClient, setShowEditClient] = useState(false);
 
+  // Mostrar menu desde el panel de informacion del cliente
   const showEdit = (value) => {
     setShowEditClient(value);
     setShowInfoClient(false);
@@ -28,17 +31,23 @@ export const ClientsPage = () => {
   return (
     <>
       <div className="relative flex flex-col items-center justify-center pb-16 gap-2.5 h-full w-full overflow-auto">
-        {/* Menu de inforamcion del cliente */}
+        {/* Menus  */}
+
+        {/* Menu de informacion del cliente */}
         <InfoClient
           clientId={clientSelected}
           closeMenu={() => setShowInfoClient(false)}
           menu={showInfoClient}
           setMenuEdit={showEdit}
         />
+
+        {/* Menu para crear un nuevo formulario */}
         <NewClientForm
           menuOn={showAddClient}
           action={() => setShowAddClient(false)}
         />
+
+        {/* Menu de para editar la informacion del cliente */}
         <EditClient
           clientId={clientSelected}
           menu={showEditClient}

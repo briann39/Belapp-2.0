@@ -31,6 +31,8 @@ export function ProductsProvider({ children }) {
     },
   ]);
 
+  const [productSelected, setProductSelected] = useState("");
+
   // -------------------------
   // Funciones para manipular productos
   // -------------------------
@@ -145,6 +147,8 @@ export function ProductsProvider({ children }) {
         getProduct,
         searchProducts,
         filterProducts,
+        productSelected,
+        setProductSelected,
       }}
     >
       {children}
