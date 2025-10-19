@@ -46,7 +46,7 @@ export function ClientProvider({ children }) {
   ]);
 
   // Estado de cliente seleccionado
-  const [clientSelected, setClientSelected] = useState(null);
+  const [clientSelected, setClientSelected] = useState("");
 
   // -------------------------
   // Funciones para manipular clientes

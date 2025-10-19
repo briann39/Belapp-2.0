@@ -51,7 +51,9 @@ export const ClientsPage = () => {
           <ButtonSquaredBigPrimary
             icono={<FontAwesomeIcon icon={faUser} />}
             content={"Detalles"}
-            action={() => setShowInfoClient(true)}
+            action={() =>
+              clientSelected !== "" ? setShowInfoClient(true) : ""
+            }
           />
           {/* Boton para editar el cliente */}
           <ButtonSquaredBigSecondary

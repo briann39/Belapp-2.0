@@ -9,6 +9,14 @@ export const NewClientForm = ({ menuOn, setMenuOn, action }) => {
 
   const { addClient } = useContext(ClientsContext);
 
+  const newClient = () => {
+    addClient(newNameClient, newNumberClient, newDirectionClient);
+    action();
+    setNewNameClient("");
+    setNewNumberClient("");
+    setNewDirectionClient("");
+  };
+
   return (
     <>
       <div
@@ -24,8 +32,7 @@ export const NewClientForm = ({ menuOn, setMenuOn, action }) => {
           className="flex flex-col gap-2.5"
           onSubmit={(e) => {
             e.preventDefault();
-            addClient(newNameClient, newNumberClient, newDirectionClient);
-            action();
+            newClient();
           }}
         >
           <h2 className="w-full font-sans text-2xl font-bold text-center">

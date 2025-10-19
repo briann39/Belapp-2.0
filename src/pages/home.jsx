@@ -21,7 +21,7 @@ import {
 export const Home = () => {
   return (
     <div className="flex flex-col gap-5">
-      {/* Header */}
+      {/* Encabezado */}
       <div className="flex justify-between align">
         {/* Bienvenida a la aplicacion, con nombre */}
         <div>
@@ -52,6 +52,7 @@ export const Home = () => {
           <h3 className="text-xl font-bold text-black">20</h3>
         </div>
       </div>
+      {/* Botones de acciones */}
       <div className="flex gap-5">
         <ButtonSquaredBigPrimary
           icono={<FontAwesomeIcon icon={faPlus} />}
