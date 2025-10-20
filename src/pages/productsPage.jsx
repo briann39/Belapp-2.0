@@ -21,7 +21,7 @@ import { EditProduct } from "../components/editProduct";
 export const ProductsPage = () => {
   const [showNewProduct, setShowNewProduct] = useState(false);
 
-  const [showEditProduct, setShowEditProduct] = useState(true);
+  const [showEditProduct, setShowEditProduct] = useState(false);
 
   return (
     <div className="relative flex flex-col items-center justify-center pb-16 gap-2.5 h-full w-full overflow-auto">

@@ -44,7 +44,7 @@ export const EditProduct = ({ menuOn, action }) => {
       {/* Menu de informacion del cliente */}
 
       <div
-        className="p-2.5 absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 flex flex-col gap-2.5 rounded-xl max-w-96 "
+        className="p-5 absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 flex flex-col gap-2.5 rounded-xl max-w-96 "
         style={{ display: menuOn ? "flex" : "none" }}
       >
         {/* Encabezado del menu */}
@@ -72,7 +72,7 @@ export const EditProduct = ({ menuOn, action }) => {
               onChange={(e) => setNewNameProduct(e.target.value)}
             />
           </div>
-          <div className="flex gap-2.5 border w-full box-border">
+          <div className="flex gap-2.5 w-full">
             <div className="flex flex-col w-1/2 gap-1">
               <label
                 className="w-full text-xs font-bold text-gray-500 "
@@ -82,7 +82,7 @@ export const EditProduct = ({ menuOn, action }) => {
               </label>
               <input
                 type="text"
-                className="w-full px-1 py-1 border-2 rounded-md"
+                className="w-full px-2.5 py-1 border-2 rounded-md"
                 value={newCodeProduct}
                 onChange={(e) => setNewCodeProduct(e.target.value)}
               />
@@ -96,7 +96,7 @@ export const EditProduct = ({ menuOn, action }) => {
               </label>
               <input
                 type="text"
-                className="w-full px-1 py-1 border-2 rounded-md"
+                className="w-full px-2.5 py-1 border-2 rounded-md"
                 value={newColorProduct}
                 onChange={(e) => setNewColorProduct(e.target.value)}
               />
