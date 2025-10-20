@@ -1,30 +1,37 @@
-import React, { useContext, useState } from "react";
-import { ProductsContext } from "../contexts/ProductsContext";
+import React, { useContext, useEffect, useState } from "react";
 import { ButtonPrimary } from "./buttons";
+import { ProductsContext } from "../contexts/ProductsContext";
 
-export const NewProductForm = ({ menuOn, action }) => {
-  const { addProduct } = useContext(ProductsContext);
-
+export const EditProduct = ({ menuOn, action }) => {
   const [newCodeProduct, setNewCodeProduct] = useState("");
   const [newNameProduct, setNewNameProduct] = useState("");
   const [newColorProduct, setNewColorProduct] = useState("");
   const [newCategoryProduct, setNewCategoryProduct] = useState("");
   const [newPriceProduct, setNewPriceProduct] = useState("");
 
-  const newProduct = () => {
-    addProduct(
-      newCodeProduct,
-      newColorProduct,
-      newNameProduct,
-      newPriceProduct,
-      newCategoryProduct
-    );
-    setNewCategoryProduct("");
-    setNewCodeProduct("");
-    setNewColorProduct("");
-    setNewNameProduct("");
-    setNewPriceProduct("");
-    action();
+  const { productSelected, setProductSelected, getProduct, editProduct } =
+    useContext(ProductsContext);
+
+  const product = getProduct(productSelected);
+
+  useEffect(() => {
+    if (productSelected !== "") {
+      setNewCodeProduct(product.code);
+      setNewNameProduct(product.name);
+      setNewColorProduct(product.color);
+      setNewCategoryProduct(product.category);
+      setNewPriceProduct(product.price);
+    }
+  }, [productSelected]);
+
+  const editProd = () => {
+    editProduct(productSelected, {
+      name: newNameProduct,
+      code: newCodeProduct,
+      color: newColorProduct,
+      category: newCategoryProduct,
+      price: newPriceProduct,
+    });
   };
 
   return (
@@ -32,22 +39,25 @@ export const NewProductForm = ({ menuOn, action }) => {
       <div
         className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50"
         style={{ display: menuOn ? "flex" : "none" }}
-        onClick={action}
+        onClick={() => action()}
       ></div>
+      {/* Menu de informacion del cliente */}
+
       <div
-        className="absolute z-10 flex flex-col w-11/12 gap-2.5 p-5 -translate-x-1/2 -translate-y-1/2 bg-white border-2 left-1/2 top-1/2 rounded-xl"
+        className="p-2.5 absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-11/12 flex flex-col gap-2.5 rounded-xl max-w-96 "
         style={{ display: menuOn ? "flex" : "none" }}
       >
+        {/* Encabezado del menu */}
+        <h2 className="w-full m-0 text-xl font-bold text-center">
+          Editar Producto
+        </h2>
         <form
           className="flex flex-col gap-2.5"
           onSubmit={(e) => {
             e.preventDefault();
-            newProduct();
+            editProd();
           }}
         >
-          <h2 className="w-full font-sans text-2xl font-bold text-center">
-            Nuevo Producto
-          </h2>
           <div className="flex flex-col gap-1">
             <label
               className="w-full text-xs font-bold text-gray-500"
@@ -120,7 +130,7 @@ export const NewProductForm = ({ menuOn, action }) => {
               onChange={(e) => setNewPriceProduct(e.target.value)}
             />
           </div>
-          <ButtonPrimary typeButton="submit" content="Nuevo Producto" />
+          <ButtonPrimary typeButton="submit" content="Guardar producto" />
         </form>
       </div>
     </>

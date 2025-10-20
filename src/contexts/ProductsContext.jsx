@@ -31,6 +31,7 @@ export function ProductsProvider({ children }) {
     },
   ]);
 
+  // Estado de producto seleccionado
   const [productSelected, setProductSelected] = useState("");
 
   // -------------------------
@@ -85,18 +86,18 @@ export function ProductsProvider({ children }) {
   };
 
   // Edita los datos de un producto existente por su codigo
-  const editProduct = (code, updatedProduct) => {
+  const editProduct = (id, updatedProduct) => {
     const newData = products.map(
       (product) =>
-        product.code === code ? { ...product, ...updatedProduct } : product // si coincide el id, combino datos existentes con los nuevos
+        product.id === id ? { ...product, ...updatedProduct } : product // si coincide el id, combino datos existentes con los nuevos
     );
 
     setProducts(newData); // Actualizo el estado con los datos nuevos
   };
 
-  // Obtiene un producto por su codigo
-  const getProduct = (code) => {
-    const product = products.find((product) => product.code === code); // busco el producto
+  // Obtiene un producto por su id
+  const getProduct = (id) => {
+    const product = products.find((product) => product.id === id); // busco el producto
     return product; // retorna el cliente encontrado o undefined si no existe (Manejar datos para ALERTA VISUAL)
   };
 

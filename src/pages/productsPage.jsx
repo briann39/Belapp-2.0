@@ -16,10 +16,12 @@ import {
   faTrash,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import { EditClient } from "../components/editClient";
+import { EditProduct } from "../components/editProduct";
 
 export const ProductsPage = () => {
   const [showNewProduct, setShowNewProduct] = useState(false);
+
+  const [showEditProduct, setShowEditProduct] = useState(true);
 
   return (
     <div className="relative flex flex-col items-center justify-center pb-16 gap-2.5 h-full w-full overflow-auto">
@@ -30,27 +32,27 @@ export const ProductsPage = () => {
         action={() => setShowNewProduct(false)}
         menuOn={showNewProduct}
       />
+
+      <EditProduct
+        action={() => setShowEditProduct(false)}
+        menuOn={showEditProduct}
+      />
       {/* Encabezador de pagina de clientes */}
       <div className="flex items-center justify-between w-full gap-5">
         {/* Titulo de la pagina */}
         <h2 className="text-2xl font-bold">Productos</h2>
-        {/* Boton de agragar nuevo cliente */}
-        <div className="w-1/2">
-          <ButtonPrimary
-            action={() => setShowNewProduct(true)}
-            content="Nuevo Producto"
-          />
-        </div>
       </div>
       <div className="w-full flex flex-col gap-2.5">
         <div className="flex gap-2.5 w-full">
           <ButtonSquaredBigPrimary
             content={"Nuevo Producto"}
+            action={() => setShowNewProduct(true)}
             icono={<FontAwesomeIcon icon={faPlus} />}
           />
           <ButtonSquaredBigSecondary
             content={"Editar Producto"}
             icono={<FontAwesomeIcon icon={faPencil} />}
+            action={() => setShowEditProduct(true)}
           />
           <ButtonSquaredBigSecondary
             content={"Eliminar Producto"}
